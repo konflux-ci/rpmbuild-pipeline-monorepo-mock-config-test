@@ -28,6 +28,10 @@ spec:
       value: "{{ revision }}"
     - name: target-branch
       value: "{{ target_branch }}"
+    - name: self-ref-url
+      value: "https://github.com/scoheb/rpmbuild-pipeline.git"
+    - name: self-ref-revision
+      value: "add-pulp-support"
   pipelineRef:
     resolver: git
     params:
