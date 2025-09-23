@@ -42,7 +42,7 @@ spec:
       - name: revision
         value: add-pulp-support
       - name: pathInRepo
-        value: pipeline/build-rpm-package.yaml
+        value: pipeline/rhel-primitives-build-rpm-package.yaml
   workspaces:
     - name: git-auth
       secret:
