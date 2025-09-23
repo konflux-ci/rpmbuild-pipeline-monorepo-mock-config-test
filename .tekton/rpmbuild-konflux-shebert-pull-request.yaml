@@ -32,8 +32,6 @@ spec:
       value: "https://github.com/scoheb/rpmbuild-pipeline.git"
     - name: self-ref-revision
       value: "add-pulp-support"
-    - name: build-architectures
-      value: [ "x86_64" ]
   pipelineRef:
     resolver: git
     params:
