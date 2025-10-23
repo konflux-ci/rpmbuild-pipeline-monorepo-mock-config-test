@@ -31,14 +31,14 @@ spec:
     - name: self-ref-url
       value: "https://github.com/scoheb/rpmbuild-pipeline.git"
     - name: self-ref-revision
-      value: "add-pulp-support"
+      value: "add-pulp-support-rebased"
   pipelineRef:
     resolver: git
     params:
       - name: url
         value: "https://github.com/scoheb/rpmbuild-pipeline.git"
       - name: revision
-        value: add-pulp-support
+        value: add-pulp-support-rebased
       - name: pathInRepo
         value: pipeline/rhel-primitives-build-rpm-package.yaml
   workspaces:
