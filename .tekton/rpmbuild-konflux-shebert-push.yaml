@@ -32,7 +32,9 @@ spec:
     - name: self-ref-revision
       value: "add-pulp-support-rebased"
     - name: specfile
-      value: "rpms/hello/hello.spec"
+      value: "hello.spec"
+    - name: path-context
+      value: "rpms/hello"
   pipelineRef:
     resolver: git
     params:
