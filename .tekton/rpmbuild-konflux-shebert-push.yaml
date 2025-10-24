@@ -31,6 +31,8 @@ spec:
       value: "https://github.com/scoheb/rpmbuild-pipeline.git"
     - name: self-ref-revision
       value: "add-pulp-support-rebased"
+    - name: specfile
+      value: "rpms/hello/hello.spec"
   pipelineRef:
     resolver: git
     params:

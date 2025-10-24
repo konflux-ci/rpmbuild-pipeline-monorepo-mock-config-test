@@ -24,9 +24,18 @@ config_opts['chroot_setup_cmd'] = 'install bash bzip2 coreutils cpio diffutils f
 It's not pretty but it gets the job done. You can use `dnf group info buildsys-build` to get the
 list.
 
+update the lockfile
+
+```bash
+cd buildsys-build
+rpm-lockfile-prototype rpms.in.yaml
+cd ..
+```
+
 We can then use Hermeto to download those RPM packages:
 
 ```bash
+alias hermeto='podman run --rm -ti -v "$PWD:$PWD:z" -w "$PWD" quay.io/konflux-ci/hermeto:latest'
 rm -rf repo-buildsys-build-local && mkdir repo-buildsys-build-local && \
 hermeto fetch-deps --output repo-buildsys-build-local '{"type": "rpm", "path": "./buildsys-build"}'
 ```
