@@ -31,20 +31,22 @@ spec:
     - name: self-ref-url
       value: "https://github.com/scoheb/rpmbuild-pipeline.git"
     - name: self-ref-revision
-      value: "add-pulp-support-rebased"
+      value: "mock-config-from-source"
     - name: specfile
       value: "hello.spec"
     - name: path-context
       value: "rpms/hello"
+    - name: mock-config-root-path
+      value: "mock-config"
   pipelineRef:
     resolver: git
     params:
       - name: url
         value: "https://github.com/scoheb/rpmbuild-pipeline.git"
       - name: revision
-        value: add-pulp-support-rebased
+        value: mock-config-from-source
       - name: pathInRepo
-        value: pipeline/rhel-primitives-build-rpm-package.yaml
+        value: pipeline/hummingbird-build-rpm-package.yaml
   workspaces:
     - name: git-auth
       secret:
