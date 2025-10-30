@@ -44,6 +44,8 @@ spec:
         value: add-pulp-support-rebased
       - name: pathInRepo
         value: pipeline/rhel-primitives-build-rpm-package.yaml
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-rpmbuild-konflux
   workspaces:
     - name: git-auth
       secret:
