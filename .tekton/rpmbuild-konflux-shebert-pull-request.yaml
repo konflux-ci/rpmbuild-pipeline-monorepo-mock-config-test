@@ -47,6 +47,8 @@ spec:
         value: mock-config-from-source
       - name: pathInRepo
         value: pipeline/hummingbird-build-rpm-package.yaml
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-rpmbuild-konflux
   workspaces:
     - name: git-auth
       secret:
