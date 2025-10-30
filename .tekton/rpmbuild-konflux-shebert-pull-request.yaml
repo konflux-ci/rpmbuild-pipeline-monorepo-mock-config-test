@@ -11,15 +11,15 @@ metadata:
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request"
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: shebert-rpm-test
-    appstudio.openshift.io/component: rpmbuild-konflux-shebert
+    appstudio.openshift.io/application: rpmbuild-konflux-shebert-test
+    appstudio.openshift.io/component: rpmbuild-konflux
     pipelines.appstudio.openshift.io/type: build
-  name: rpmbuild-konflux-shebert-on-pull-request
+  name: rpmbuild-konflux-on-pull-request
   namespace: shebert-tenant
 spec:
   params:
     - name: ociStorage
-      value: quay.io/redhat-user-workloads/shebert-tenant/rpmbuild-konflux-shebert:on-pr-{{ pull_request_number }}-{{revision}}
+      value: quay.io/redhat-user-workloads/shebert-tenant/rpmbuild-konflux:on-pr-{{ pull_request_number }}-{{revision}}
     - name: package-name
       value: hello
     - name: git-url
@@ -31,20 +31,24 @@ spec:
     - name: self-ref-url
       value: "https://github.com/scoheb/rpmbuild-pipeline.git"
     - name: self-ref-revision
-      value: "add-pulp-support-rebased"
+      value: "mock-config-from-source"
     - name: specfile
       value: "hello.spec"
     - name: path-context
       value: "rpms/hello"
+    - name: mock-config-root-path
+      value: "mock-config"
   pipelineRef:
     resolver: git
     params:
       - name: url
         value: "https://github.com/scoheb/rpmbuild-pipeline.git"
       - name: revision
-        value: add-pulp-support-rebased
+        value: mock-config-from-source
       - name: pathInRepo
-        value: pipeline/rhel-primitives-build-rpm-package.yaml
+        value: pipeline/hummingbird-build-rpm-package.yaml
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-rpmbuild-konflux
   workspaces:
     - name: git-auth
       secret:

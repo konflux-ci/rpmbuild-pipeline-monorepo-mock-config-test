@@ -10,15 +10,15 @@ metadata:
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "main"
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: shebert-rpm-test
-    appstudio.openshift.io/component: rpmbuild-konflux-shebert
+    appstudio.openshift.io/application: rpmbuild-konflux-shebert-test
+    appstudio.openshift.io/component: rpmbuild-konflux
     pipelines.appstudio.openshift.io/type: build
-  name: rpmbuild-konflux-shebert-on-push
+  name: rpmbuild-konflux-on-push
   namespace: shebert-tenant
 spec:
   params:
     - name: ociStorage
-      value: quay.io/redhat-user-workloads/shebert-tenant/rpmbuild-konflux-shebert:{{revision}}
+      value: quay.io/redhat-user-workloads/shebert-tenant/rpmbuild-konflux:{{revision}}
     - name: package-name
       value: hello
     - name: git-url
@@ -44,6 +44,8 @@ spec:
         value: add-pulp-support-rebased
       - name: pathInRepo
         value: pipeline/rhel-primitives-build-rpm-package.yaml
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-rpmbuild-konflux
   workspaces:
     - name: git-auth
       secret:
