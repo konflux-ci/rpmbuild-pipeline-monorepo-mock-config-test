@@ -36,8 +36,8 @@ spec:
       value: "hello.spec"
     - name: path-context
       value: "rpms/hello"
-    - name: mock-config-root-path
-      value: "mock-config"
+    - name: mock-config-template-file
+      value: "mock/mock.cfg"
   pipelineRef:
     resolver: git
     params:
