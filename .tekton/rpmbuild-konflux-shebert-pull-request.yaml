@@ -15,11 +15,11 @@ metadata:
     appstudio.openshift.io/component: rpmbuild-konflux-shebert
     pipelines.appstudio.openshift.io/type: build
   name: rpmbuild-konflux-shebert-on-pull-request
-  namespace: rhel-primitives-tenant
+  namespace: shebert-tenant
 spec:
   params:
     - name: ociStorage
-      value: quay.io/redhat-user-workloads/rhel-primitives-tenant/rpmbuild-konflux-shebert:on-pr-{{ pull_request_number }}-{{revision}}
+      value: quay.io/redhat-user-workloads/shebert-tenant/rpmbuild-konflux-shebert:on-pr-{{ pull_request_number }}-{{revision}}
     - name: package-name
       value: hello
     - name: git-url
